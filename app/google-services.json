@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "310494428171",
+    "firebase_url": "https://find-plasma.firebaseio.com",
+    "project_id": "find-plasma",
+    "storage_bucket": "find-plasma.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:310494428171:android:1b1152de1c1bbb2a151b0e",
+        "android_client_info": {
+          "package_name": "com.example.findplasma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "310494428171-4tul2er0hm5lpeuim7454vb7sa9mqd9a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.findplasma",
+            "certificate_hash": "a4cd667b88f2f1398928cba95c0e5ec09080a6fd"
+          }
+        },
+        {
+          "client_id": "310494428171-csuooruiip2seooh96ofeci7i7tibskp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANPszYnB8pnq95JGzhuzCMtqsoS9l71io"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "310494428171-csuooruiip2seooh96ofeci7i7tibskp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

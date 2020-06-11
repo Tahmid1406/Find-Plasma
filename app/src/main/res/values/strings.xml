@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Find Plasma</string>
+    <string name="phone">+88</string>
+    <string name="namehint">Enter your name.....</string>
+    <string name="phonehint">Enter your phone number.....</string>
+    <string name="select_blood_group">Please Select Your Blood Group</string>
+    <string name="Welcome">How did you become Negative??</string>
+    <string name="hospitalName">Your hospital name....</string>
+    <string name="hospital">Please mention you hospital name</string>
+    <string name="location">Please Enter your location</string>
+    <string name="locationhint">Your current location</string>
+    <string name="becomeDonor">Become A Donor</string>
+    <string name="register">Register</string>
+    <string name="request">Register Number</string>
+    <string name="optcode">Enter OTP Code</string>
+    <string name="sure">Confirm OTP</string>
+    <string name="registerMessage">Get Started As A Donor</string>
+    <string name="verificationCode">Enter Verification Code</string>
+    <string name="confirm">Confirm Number</string>
+</resources>
