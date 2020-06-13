@@ -55,7 +55,7 @@ public class WelcomeActivity extends AppCompatActivity {
         becomeDonor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(WelcomeActivity.this, VarificationActivity.class);
+                Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
                 intent.putExtra("recover", recover);
                 String hospitalname = hospitalName.getText().toString();
                 if(TextUtils.isEmpty(hospitalname)){
