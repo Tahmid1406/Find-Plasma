@@ -34,6 +34,7 @@ import java.util.concurrent.TimeUnit;
 
 public class VarificationActivity extends AppCompatActivity {
     private EditText editTextPhone, editTextpass;
+    private TextView loginText;
     private Button registerNum;
     private DatabaseReference userref;
 
@@ -46,6 +47,7 @@ public class VarificationActivity extends AppCompatActivity {
         editTextPhone = findViewById(R.id.editTextPhone);
         editTextpass= findViewById(R.id.editTextpass);
         registerNum = findViewById(R.id.registerNum);
+        loginText = findViewById(R.id.loginText);
 
         userref = FirebaseDatabase.getInstance().getReference().child("Users");
 
@@ -62,6 +64,17 @@ public class VarificationActivity extends AppCompatActivity {
                     createuser(phone, pass);
                 }
 
+            }
+        });
+
+
+
+
+        loginText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(VarificationActivity.this, LoginActivity.class);
+                startActivity(intent);
             }
         });
 

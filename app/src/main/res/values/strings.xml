@@ -3,14 +3,14 @@
     <string name="phone">Phone</string>
     <string name="namehint">Enter your name.....</string>
     <string name="phonehint">Enter your phone number.....</string>
-    <string name="select_blood_group">Please Select Your Blood Group</string>
+    <string name="select_blood_group">Select Blood Group</string>
     <string name="Welcome">How did you become Negative??</string>
     <string name="hospitalName">Your hospital name....</string>
     <string name="hospital">Please mention you hospital name</string>
     <string name="location">Please Enter your location</string>
     <string name="locationhint">Your current location</string>
     <string name="becomeDonor">Become A Donor</string>
-    <string name="register">Register</string>
+    <string name="register">Register As A Donor</string>
     <string name="request">Register Number</string>
     <string name="pass">Enter a password....</string>
     <string name="optcode">Enter OTP Code</string>
@@ -18,4 +18,11 @@
     <string name="registerMessage">Get Started As A Donor</string>
     <string name="verificationCode">Enter Verification Code</string>
     <string name="confirm">Confirm Number</string>
+    <string name="newReg">Not Registered Yet?</string>
+    <string name="newReg2">Create Account</string>
+    <string name="newReg3">Enter your password....</string>
+    <string name="newReg4">Already Have an Account?</string>
+    <string name="newReg5">Login</string>
+    <string name="keep">Keep Me Logged In</string>
+    <string name="treat">Treated In</string>
 </resources>

@@ -3,6 +3,7 @@ package com.example.findplasma;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -14,6 +15,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.findplasma.Models.User;
+import com.example.findplasma.Prevalent.Prevalent;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,15 +30,18 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
-    private Spinner Bloodspinner;
-    private Button register;
+    private Spinner Bloodspinner,treatSpinner;
+    private Button registerButton;
     private String groups[] = {"A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"};
+    private String treat[] = {"Hospital", "Home"};
     private ArrayAdapter<String> arrayAdapter;
-    private String name, phone, location, bloodGroup;
-    private EditText nameEdit, locationEdit;
+    private ArrayAdapter<String> treatAdapter;
+    private String name, phone, location, bloodGroup, treatment;
+    private EditText nameinfo, locationinfo;
     private TextView phoneEdit;
     private FirebaseAuth mAuth;
-    private FirebaseUser user;
+    private DatabaseReference rootRef;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,25 +50,26 @@ public class MainActivity extends AppCompatActivity {
 
         //finding intial components
         Bloodspinner = (Spinner) findViewById(R.id.Bloodspinner);
-        register = findViewById(R.id.registerButton);
-        nameEdit = (EditText) findViewById(R.id.nameinfo);
-        phoneEdit = (TextView) findViewById(R.id.phoneEdit);
-        locationEdit = (EditText) findViewById(R.id.locationinfo);
+        treatSpinner = findViewById(R.id.treatSpinner);
+        registerButton = findViewById(R.id.registerButton);
+        nameinfo = (EditText) findViewById(R.id.nameinfo);
+        locationinfo = (EditText) findViewById(R.id.locationinfo);
+        phoneEdit = findViewById(R.id.phoneEdit);
 
-
-        phone = FirebaseAuth.getInstance().getCurrentUser().getPhoneNumber();
-        phoneEdit.setText(phone);
-
-        //getting the intent extra information from welcome activity
-        String recoverType = getIntent().getStringExtra("recover");
-        String hospital = getIntent().getStringExtra("hospitalname");
-
-        Toast.makeText(this, recoverType + "  " + hospital, Toast.LENGTH_SHORT).show();
-
-
+        Intent intent = getIntent();
+        phone = intent.getStringExtra("phone");
+        phoneEdit.setText("+88" + phone);
 
         arrayAdapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, groups);
         Bloodspinner.setAdapter(arrayAdapter);
+
+        treatAdapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, treat);
+        treatSpinner.setAdapter(treatAdapter);
+
+
+       rootRef = FirebaseDatabase.getInstance().getReference().child("All Users");
+
+
 
         // getting blood group from the spinner
         Bloodspinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -78,47 +85,55 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        treatSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                treatment = treat[position];
+            }
 
-        // register button onClict event
-        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+        registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                name = nameEdit.getText().toString();
-                location = locationEdit.getText().toString();
+                name = nameinfo.getText().toString().trim();
+                location = locationinfo.getText().toString().trim();
 
                 if(TextUtils.isEmpty(name)){
-                    Toast.makeText(MainActivity.this, "Enter your name", Toast.LENGTH_SHORT).show();
+                    nameinfo.setError("Enter your name");
                 }else if(TextUtils.isEmpty(location)){
-                    Toast.makeText(MainActivity.this, "Enter your location", Toast.LENGTH_SHORT).show();
-                }else{
-                    final DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference().child(bloodGroup);
-                    rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            HashMap<String,Object> userDataMap = new HashMap<>();
-                            userDataMap.put("name", name);
-                            userDataMap.put("phone", phone);
-                            userDataMap.put("bloodgroup", bloodGroup);
-                            userDataMap.put("location",location);
-                            rootRef.updateChildren(userDataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if( task.isSuccessful()){
-                                        Toast.makeText(MainActivity.this, "User Data Added", Toast.LENGTH_SHORT).show();
-                                    }
-                                }
-                            });
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                        }
-                    });
+                    locationinfo.setError("Enter your location");
+                }else {
+                    pushData(name, phone, bloodGroup, treatment, location);
                 }
             }
         });
 
+
+    }
+
+    private void pushData(String name, String phone, String bloodGroup, String treatment, String location) {
+
+        HashMap<String,Object> userMap = new HashMap<>();
+        userMap.put("name", name);
+        userMap.put("phone", phone);
+        userMap.put("bloodgroup", bloodGroup);
+        userMap.put("treatment", treatment);
+        userMap.put("location", location);
+
+        rootRef.child(bloodGroup).updateChildren(userMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    Toast.makeText(MainActivity.this, "Information Added to Database", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
     }
 
