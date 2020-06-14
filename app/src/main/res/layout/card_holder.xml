@@ -2,27 +2,35 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/border">
+    android:layout_marginLeft="12dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginRight="12dp"
+    android:layout_marginBottom="4dp"
+    android:background="@drawable/border"
+    android:orientation="vertical"
+    app:cardCornerRadius="10dp">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp">
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="4dp">
 
         <TextView
             android:id="@+id/bloodCard"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="2dp"
             android:layout_marginEnd="8dp"
-            android:text="A+"
+            android:text="@string/empty"
             android:textAlignment="center"
-            android:textSize="22dp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -32,10 +40,9 @@
             android:id="@+id/textView11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="Name"
-            android:textSize="18sp"
+            android:layout_marginStart="24dp"
+            android:text="@string/name"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bloodCard" />
 
@@ -43,10 +50,10 @@
             android:id="@+id/textView12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="4dp"
-            android:text="Phone"
-            android:textSize="18dp"
+            android:text="@string/phone"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
@@ -54,10 +61,10 @@
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="4dp"
-            android:text="Location"
-            android:textSize="18dp"
+            android:text="@string/loc"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
@@ -65,22 +72,26 @@
             android:id="@+id/textView14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="4dp"
-            android:text="Treatment"
-            android:textSize="18dp"
+            android:text="@string/tr"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
         <Button
             android:id="@+id/callBtn"
-            android:layout_width="184dp"
+            android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="4dp"
-            android:layout_marginBottom="16dp"
-            android:text="Call"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/btn_custom"
+            android:drawableLeft="@drawable/ic_call_black_24dp"
+            android:padding="5dp"
+            android:text="@string/t"
+            android:textColor="#A79347"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/textBtn"
             app:layout_constraintStart_toStartOf="parent"
@@ -88,13 +99,17 @@
 
         <Button
             android:id="@+id/textBtn"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:layout_marginStart="17dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="4dp"
-            android:layout_marginBottom="16dp"
-            android:text="Text"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/btn_custom"
+            android:drawableLeft="@drawable/ic_message_black_24dp"
+            android:padding="5dp"
+            android:text="@string/txt"
+            android:textColor="#A79347"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/callBtn"
@@ -104,10 +119,9 @@
             android:id="@+id/nameCard"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:text="TextView"
-            android:textSize="18dp"
+            android:text="@string/empty"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bloodCard" />
 
@@ -117,8 +131,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="8dp"
-            android:text="TextView"
-            android:textSize="18dp"
+            android:text="@string/empty"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/nameCard" />
 
@@ -128,8 +142,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="8dp"
-            android:text="TextView"
-            android:textSize="18dp"
+            android:text="@string/empty"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/phoneCard" />
 
@@ -139,10 +153,19 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="8dp"
-            android:text="TextView"
-            android:textSize="18dp"
+            android:text="@string/empty"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/locationCard" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="3dp"
+            android:layout_height="0dp"
+            android:background="@drawable/btn_grad"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

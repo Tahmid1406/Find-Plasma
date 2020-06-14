@@ -7,12 +7,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.findplasma.ItemClickListener;
 import com.example.findplasma.R;
 
-public class UserViewHolder extends RecyclerView.ViewHolder {
+public class UserViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
     public TextView nameCard ,phoneCard ,locationCard , treatmentCard,bloodCard;
 
     public Button callBtn  ,textBtn;
+    public ItemClickListener listener;
 
     public UserViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -26,5 +28,10 @@ public class UserViewHolder extends RecyclerView.ViewHolder {
         callBtn = itemView.findViewById(R.id.callBtn);
         textBtn = itemView.findViewById(R.id.textBtn);
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        listener.onClick(v,getAdapterPosition(),false);
     }
 }

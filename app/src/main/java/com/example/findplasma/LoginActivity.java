@@ -28,6 +28,7 @@ import java.security.PrivateKey;
 import io.paperdb.Paper;
 
 import static com.google.firebase.database.FirebaseDatabase.getInstance;
+import static maes.tech.intentanim.CustomIntent.customType;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -143,6 +144,7 @@ public class LoginActivity extends AppCompatActivity {
                             intent.putExtra("phone", phonenumber);
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(intent);
+                            customType(LoginActivity.this,"left-to-right");
                             finish();
                             loginPass.getText().clear();
                             loginPhone.getText().clear();

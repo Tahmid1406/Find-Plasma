@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Find Plasma</string>
+    <string name="name">Name</string>
+    <string name="loc">Location</string>
     <string name="phone">Phone</string>
+    <string name="empty"></string>
+    <string name="tr">Treatment</string>
     <string name="namehint">Enter your name.....</string>
     <string name="phonehint">Enter your phone number.....</string>
     <string name="select_blood_group">Select Blood Group</string>
@@ -12,7 +16,7 @@
     <string name="becomeDonor">Become A Donor</string>
     <string name="register">Register As A Donor</string>
     <string name="request">Register Number</string>
-    <string name="pass">Enter a password....</string>
+    <string name="pass">Choose password....</string>
     <string name="optcode">Enter OTP Code</string>
     <string name="sure">Confirm OTP</string>
     <string name="registerMessage">Get Started As A Donor</string>
@@ -27,4 +31,9 @@
     <string name="treat">Treated In</string>
     <string name="searchBlood">Search For Plasma</string>
     <string name="pla_search">Use capital letter for search....</string>
+    <string name="sr">Enter blood group in capital letter......</string>
+    <string name="clr">Click Here</string>
+    <string name="bdr">Become A Donor</string>
+    <string name="t">Call</string>
+    <string name="txt">Text</string>
 </resources>
