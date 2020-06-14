@@ -138,10 +138,12 @@ public class LoginActivity extends AppCompatActivity {
                     User userData = dataSnapshot.child("Users").child(phone).getValue(User.class);
                     if(userData.getPhone().equals(phone)) {
                         if(userData.getPass().equals(pass)){
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                             phonenumber = loginPhone.getText().toString();
                             intent.putExtra("phone", phonenumber);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(intent);
+                            finish();
                             loginPass.getText().clear();
                             loginPhone.getText().clear();
 

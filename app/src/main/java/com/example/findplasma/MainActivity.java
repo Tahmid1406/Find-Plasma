@@ -28,18 +28,19 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
+import java.util.MissingFormatArgumentException;
 
 public class MainActivity extends AppCompatActivity {
     private Spinner Bloodspinner,treatSpinner;
     private Button registerButton;
     private String groups[] = {"A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"};
-    private String treat[] = {"Hospital", "Home"};
+    private String treat[] = {"Hospital Treatment", "Home Treatment"};
     private ArrayAdapter<String> arrayAdapter;
     private ArrayAdapter<String> treatAdapter;
     private String name, phone, location, bloodGroup, treatment;
     private EditText nameinfo, locationinfo;
     private TextView phoneEdit;
-    private FirebaseAuth mAuth;
+    //private FirebaseAuth mAuth;
     private DatabaseReference rootRef;
 
 
@@ -126,11 +127,15 @@ public class MainActivity extends AppCompatActivity {
         userMap.put("treatment", treatment);
         userMap.put("location", location);
 
-        rootRef.child(bloodGroup).updateChildren(userMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+        rootRef.child(phone).updateChildren(userMap).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()){
                     Toast.makeText(MainActivity.this, "Information Added to Database", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                    finish();
                 }
             }
         });

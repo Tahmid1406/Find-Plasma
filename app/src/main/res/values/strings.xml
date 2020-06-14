@@ -25,4 +25,6 @@
     <string name="newReg5">Login</string>
     <string name="keep">Keep Me Logged In</string>
     <string name="treat">Treated In</string>
+    <string name="searchBlood">Search For Plasma</string>
+    <string name="pla_search">Use capital letter for search....</string>
 </resources>
