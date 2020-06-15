@@ -35,6 +35,8 @@ import com.google.firebase.database.Query;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
 
+import static maes.tech.intentanim.CustomIntent.customType;
+
 public class HomeActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
@@ -87,6 +89,7 @@ public class HomeActivity extends AppCompatActivity {
                 Intent intent = new Intent(HomeActivity.this, MainActivity.class);
                 intent.putExtra("phone", phoneNo);
                 startActivity(intent);
+                customType(HomeActivity.this,"left-to-right");
 
             }
         });

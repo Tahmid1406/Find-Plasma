@@ -32,6 +32,8 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
+import static maes.tech.intentanim.CustomIntent.customType;
+
 public class VarificationActivity extends AppCompatActivity {
     private EditText editTextPhone, editTextpass;
     private TextView loginText;
@@ -92,7 +94,11 @@ public class VarificationActivity extends AppCompatActivity {
                 if(task.isSuccessful()){
                     Toast.makeText(VarificationActivity.this, "User Added", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(VarificationActivity.this, LoginActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
+                    customType(VarificationActivity.this,"left-to-right");
+                    finish();
+
                 }
             }
         });
