@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name='Find Plasma'
+rootProject.name='Blood Finder'

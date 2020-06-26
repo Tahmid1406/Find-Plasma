@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:310494428171:android:1b1152de1c1bbb2a151b0e",
+        "mobilesdk_app_id": "1:310494428171:android:b49946381da03261151b0e",
         "android_client_info": {
-          "package_name": "com.example.findplasma"
+          "package_name": "com.Tlab.bloodfinder"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "310494428171-4tul2er0hm5lpeuim7454vb7sa9mqd9a.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.findplasma",
+            "package_name": "com.Tlab.bloodfinder",
             "certificate_hash": "a4cd667b88f2f1398928cba95c0e5ec09080a6fd"
           }
         },
